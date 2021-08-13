@@ -15,7 +15,9 @@ func generatePassword(value *sqlparser.SQLVal) *sqlparser.SQLVal {
 }
 
 func generateEmail(value *sqlparser.SQLVal) *sqlparser.SQLVal {
-	return sqlparser.NewStrVal([]byte(faker.Internet().SafeEmail()))
+	var email string
+	email = string(faker.Internet().UserName()) + string("_") + string(faker.Lorem().Characters(4)) + "@" + string(faker.Internet().DomainName())
+	return sqlparser.NewStrVal([]byte(email))
 }
 
 func generateURL(value *sqlparser.SQLVal) *sqlparser.SQLVal {

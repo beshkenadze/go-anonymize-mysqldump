@@ -3,7 +3,7 @@ BUILDDIR = ./build
 
 all: clean vet fmt lint test build
 
-all-linux: clean vet fmt lint test build-linux-amd64
+all-linux: clean vet fmt lint build-linux-amd64
 
 build:
 	gox -os="linux" -os="darwin" -os="windows" -arch="amd64" -arch="386" -output="${BUILDDIR}/${BINARY}_{{.OS}}_{{.Arch}}"
